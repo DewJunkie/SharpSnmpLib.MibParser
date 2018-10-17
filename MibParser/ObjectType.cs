@@ -3,7 +3,7 @@ using System;
 
 namespace Lextm.SharpSnmpLib.Mib
 {
-    internal sealed class ObjectType : IEntity
+    public sealed class ObjectType : IEntity
     {
         private readonly string _module;
         private string _parent;
@@ -287,7 +287,7 @@ namespace Lextm.SharpSnmpLib.Mib
                 if (temp == Symbol.Of)
                 {
                     temp = enumerator.NextNonEOLSymbol();
-                    syntax = new TypeAssignment(string.Empty, string.Empty, enumerator, ref temp);
+                    syntax = new SequenceOfTypeAssignment(string.Empty, string.Empty, enumerator, ref temp);
                 }
                 else
                 {

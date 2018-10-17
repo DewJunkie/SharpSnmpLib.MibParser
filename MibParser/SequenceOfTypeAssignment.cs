@@ -14,7 +14,7 @@ namespace Lextm.SharpSnmpLib.Mib
     /// <summary>
     /// Alias.
     /// </summary>
-    public sealed class TypeAssignment : TypeAssignmentBase
+    public sealed class SequenceOfTypeAssignment : TypeAssignmentBase
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         private string _module;
@@ -28,7 +28,7 @@ namespace Lextm.SharpSnmpLib.Mib
         /// <param name="name"></param>
         /// <param name="lexer"></param>
         /// <param name="last"></param>
-        public TypeAssignment(string module, string name, Symbol last, Lexer lexer)
+        public SequenceOfTypeAssignment(string module, string name, Symbol last, Lexer lexer)
         {
             _module = module;
             _name = name;
@@ -52,7 +52,7 @@ namespace Lextm.SharpSnmpLib.Mib
             previous.Throw("end of file reached");
         }
 
-        public TypeAssignment(string module, string name, IEnumerator<Symbol> enumerator, ref Symbol temp)
+        public SequenceOfTypeAssignment(string module, string name, IEnumerator<Symbol> enumerator, ref Symbol temp)
         {
             _module = module;
             _name = name;

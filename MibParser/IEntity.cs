@@ -65,5 +65,7 @@ namespace Lextm.SharpSnmpLib.Mib
         {
             get;            
         }
+
+        string Description { get; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Lextm.SharpSnmpLib.Mib
 {
-    internal class ValueRange
+    public class ValueRange
     {
         private readonly Int64 _start;
         private readonly Int64? _end;

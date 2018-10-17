@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Lextm.SharpSnmpLib.Mib
 {
-    abstract class TypeAssignmentBase : ITypeAssignment
+    public abstract class TypeAssignmentBase : ITypeAssignment
     {
         protected static IList<ValueRange> DecodeRanges(object enumerator)
         {

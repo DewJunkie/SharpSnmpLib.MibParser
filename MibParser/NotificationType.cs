@@ -13,6 +13,14 @@ namespace Lextm.SharpSnmpLib.Mib
         {
             _module = module;
             _name = header[0].ToString();
+
+            var enumerator = header.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                if (enumerator.Current.Equals(Symbol.Description) && enumerator.MoveNext())
+                    Description = enumerator.Current.ToString();
+            }
+
             lexer.ParseOidValue(out _parent, out _value);
         }
 
@@ -37,10 +45,6 @@ namespace Lextm.SharpSnmpLib.Mib
             get { return _name; }
         }
         
-        public string Description
-        {
-            // TODO: implement this.
-            get { return string.Empty; }
-        }
+        public string Description { get; private set; }
     }
 }

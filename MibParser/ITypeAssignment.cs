@@ -1,6 +1,6 @@
 ﻿namespace Lextm.SharpSnmpLib.Mib
 {
-    internal interface ITypeAssignment : IConstruct
+    public interface ITypeAssignment : IConstruct
     {
     }
 }
