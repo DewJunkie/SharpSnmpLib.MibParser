@@ -25,8 +25,8 @@ namespace Lextm.SharpSnmpLib.Mib
     public sealed class IntegerType : TypeAssignmentBase
     {
         private bool _isEnumeration;
-        private IDictionary<int, string> _map;
-        private IList<ValueRange> _ranges;
+        public IDictionary<int, string> Map;
+        public IList<ValueRange> Ranges;
         private string _name;
 
         /// <summary>
@@ -46,13 +46,13 @@ namespace Lextm.SharpSnmpLib.Mib
             {
                 lexer.GetNextNonEOLSymbol();
                 _isEnumeration = true;
-                _map = DecodeEnumerations(lexer);
+                Map = DecodeEnumerations(lexer);
             }
             else if (temp == Symbol.OpenParentheses)
             {
                 lexer.GetNextNonEOLSymbol();
                 _isEnumeration = false;
-                _ranges = DecodeRanges(lexer);
+                Ranges = DecodeRanges(lexer);
             }
         }
 
@@ -72,13 +72,13 @@ namespace Lextm.SharpSnmpLib.Mib
             if (temp == Symbol.OpenBracket)
             {
                 _isEnumeration = true;
-                _map = DecodeEnumerations(enumerator);
+                Map = DecodeEnumerations(enumerator);
                 temp = enumerator.NextNonEOLSymbol();
             }
             else if (temp == Symbol.OpenParentheses)
             {
                 _isEnumeration = false;
-                _ranges = DecodeRanges(enumerator);
+                Ranges = DecodeRanges(enumerator);
                 temp = enumerator.NextNonEOLSymbol();
             }
         }
@@ -100,13 +100,13 @@ namespace Lextm.SharpSnmpLib.Mib
         {
             get
             {
-                return _isEnumeration && _map.TryGetValue(identifier, out var enumValue) ? enumValue : identifier.ToString();
+                return _isEnumeration && Map.TryGetValue(identifier, out var enumValue) ? enumValue : identifier.ToString();
             }
         }
 
         public bool Contains(int value)
         {
-            return _ranges.Any(range => range.Contains(value));
+            return Ranges.Any(range => range.Contains(value));
         }
     }
 }
