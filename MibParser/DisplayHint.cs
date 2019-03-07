@@ -2,7 +2,7 @@
 
 namespace Lextm.SharpSnmpLib.Mib
 {
-    class DisplayHint
+    public class DisplayHint
     {
         private enum NumType {
             Dec,

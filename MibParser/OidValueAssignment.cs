@@ -12,7 +12,7 @@ namespace Lextm.SharpSnmpLib.Mib
     /// <summary>
     /// Object identifier node.
     /// </summary>
-    internal sealed class OidValueAssignment : IEntity
+    public sealed class OidValueAssignment : IEntity
     {
         private readonly string _module;
         private readonly string _name;
